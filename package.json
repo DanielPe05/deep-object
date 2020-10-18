@@ -5,7 +5,7 @@
   "keywords": [],
   "main": "dist/object-touch.umd.js",
   "module": "dist/object-touch.es5.js",
-  "typings": "dist/types/object-touch.d.ts",
+  "typings": "dist/types/main.d.ts",
   "files": [
     "dist"
   ],
