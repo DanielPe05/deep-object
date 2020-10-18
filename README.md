@@ -40,3 +40,21 @@ lowerCaseValues(src, ['a.b.c', 'e'])
 
 // { a: { b: { c: 'Foo' } }, d: 'bar', e: 'Wiz' }
 ```
+
+### `lowerCaseKeys`
+
+Allows to lowercase all keys at all levels of the source object. Returns a new object.
+
+| Params | Required | Desc                                    |
+| ------ | -------- | --------------------------------------- |
+| source | yes      | The source object that will be modified |
+
+```javascript
+import { lowerCaseKeys } from 'object-touch'
+
+const src = { A: { B: { C: 'Foo' } } }
+
+lowerCaseKeys(src)
+
+// { a: { b: { c: 'foo' } } }
+```
