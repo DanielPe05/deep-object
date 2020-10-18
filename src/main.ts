@@ -1,4 +1,4 @@
-import { isArray, isObject, isString, flatten, set } from './utils'
+import { isArray, isObject, isString, flatten, set, isValidObject } from './utils'
 
 export const lowerCaseValues = (payload: Object, keysToSkip: string[] = []) => {
   const flatSource = flatten(payload)
@@ -24,3 +24,26 @@ const lowerCase = (payload: Object) =>
 
     return updated
   }, {})
+
+export const lowerCaseKeys = obj => {
+  if (!isValidObject(obj)) {
+    return obj
+  }
+
+  const keys = Object.keys(obj)
+  let n = keys.length
+  let modifiedKey: string
+
+  while (n--) {
+    let key = keys[n]
+    modifiedKey = key.toLowerCase()
+    if (key === modifiedKey) {
+      continue
+    }
+
+    obj[modifiedKey] = lowerCaseKeys(obj[key])
+    delete obj[key]
+  }
+
+  return obj
+}
