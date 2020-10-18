@@ -1,7 +1,9 @@
 module.exports = {
+  access: 'public',
   branches: ['main'],
   plugins: [
     '@semantic-release/commit-analyzer',
+    '@semantic-release/npm',
     [
       '@semantic-release/git',
       {
